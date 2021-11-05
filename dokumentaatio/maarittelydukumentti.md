@@ -4,7 +4,7 @@
 
 Toteutan projektina ohjelman, joka käyttää RSA-salausta viestin salaamiseen. Salaus perustuu isojen alkulukujen muodostamiseen ja niillä tiettyjen laskutoimitusten tekemiseen (tarkemmat algoritmit/työkalut tulevat myöhemmin). 
 
-Valitsin RSA-salauksen projektin aiheeksi, koska aivan pintapuolista raapaisua lukuunottamatta, se on minulle täysin uusi aihe ja se vaikuttaa mielenkiintoiselta. Tavoitteena on tuottaa ohjelma, joka saa syötteeksi viestin jonka se salaa, sekä pystyy purkamaan viestin alkuperäiseen muotoonsa.
+Valitsin RSA-salauksen projektin aiheeksi, koska aivan pintapuolista raapaisua lukuunottamatta, se on minulle täysin uusi aihe ja se vaikuttaa mielenkiintoiselta. Tavoitteena on tuottaa ohjelma joka saa syötteeksi viestin, jonka se salaa, sekä pystyy purkamaan alkuperäiseen muotoonsa.
 
 ## Projektin kielet
 
