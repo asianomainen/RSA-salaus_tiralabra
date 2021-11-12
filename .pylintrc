@@ -422,6 +422,13 @@ function-naming-style=snake_case
 
 # Good variable names which should always be accepted, separated by a comma.
 good-names=i,
+	   p,
+	   q,
+	   x,
+	   a,
+	   r,
+	   k,
+	   n,
            j,
            k,
            ex,

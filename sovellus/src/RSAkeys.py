@@ -1,9 +1,10 @@
 import random
 
-class RSAkeys:
+
+class rsa_keys:
 
     """Luokka vastaa RSA-avainten luomisesta.
-    
+
     Attributes:
         public_key
         private_key
@@ -23,10 +24,10 @@ class RSAkeys:
         """
 
         p, q = self.generate_prime_numbers()
-    
+
     def generate_prime_numbers(self):
         """Luo alkuluvut p ja q, niin että p*q >= 2048 bittiä ja p != q.
-        
+
         Returns:
             Alkulukuparin.
         """
@@ -60,7 +61,7 @@ class RSAkeys:
         Args:
             n: Integer, jota halutaan testata.
             k: Integer, testin iteraatioiden määrä.
-        
+
         Returns: 
             True, jos luku on hyvin suurella todennäköisyydellä alkuluku.
         """
@@ -82,5 +83,3 @@ class RSAkeys:
             else:
                 return False
         return True
-
-
