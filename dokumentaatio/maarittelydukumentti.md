@@ -12,11 +12,11 @@ Projektin ohjelmointikielenä toimii Python ja dokumentaatio kielenä Suomi. En 
 
 ## Projektissa käytettävät algoritmit ja tietorankeet
 
-# Tietorakenteet
+### Tietorakenteet
 
 RSA-salaus perustuu erittäin suurien alkulukujen löytämiseen, eikä projektissa tarvita suurempia tietorankentaita kuin yksittäisiä muuttujia.
 
-# Algoritmit
+### Algoritmit
 
 - Miller-Rabin algoritmi
   - Tarkka testi joka tarkistaa, onko käsiteltävä luku alkuluku vai ei.
