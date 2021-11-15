@@ -25,7 +25,7 @@ class rsa_keys:
         self.public_key = None
         self.private_key = None
         self.small_primes = sm.prime_list
-        self.length = 500
+        self.length = 1024
 
     def generate_number(self, n):
         """Luo n-bittiä pitkän luvun.
@@ -34,7 +34,7 @@ class rsa_keys:
             n: Integer, luvun pituus biteissä
 
         Returns: 
-            Integer.
+            Integer, jonka pituus on n bittiä.
         """
 
         return random.getrandbits(n)
@@ -57,11 +57,16 @@ class rsa_keys:
         """
 
         while True:
-            p, q = self.generate_number(
-                self.length), self.generate_number(self.length)
-            if p==q or p % 2 == 0 or q % 2 == 0:
+            p = self.generate_number(self.length)
+            if p % 2 == 0:
                 continue
-            if self.is_prime(p) and self.is_prime(q):
+            if self.is_prime(p):
+                break
+        while True:
+            q = self.generate_number(self.length)
+            if q % 2 == 0 or q == p:
+                continue
+            if self.is_prime(q):
                 break
         return (p, q)
 
@@ -74,11 +79,10 @@ class rsa_keys:
         Returns: 
             True, jos luku on alkuluku.
         """
+
         if not self.screening(n):
-            print("ei läpäissyt screeniä")
             return False
-        if not self.miller_rabin(n, 20):
-            print("ei läpäissyt milleriä")
+        if not self.miller_rabin(n, 40):
             return False
         return True
     
