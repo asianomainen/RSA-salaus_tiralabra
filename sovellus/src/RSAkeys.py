@@ -1,4 +1,5 @@
 import random
+from smallprimes import small_primes
 from timeit import default_timer as timer
 
 
@@ -9,6 +10,7 @@ class rsa_keys:
     Attributes:
         public_key
         private_key
+        small_primes: Lista pienistä alkuluvuista.
         lenght: Avainten luomiseen käytettyjen lukujen pituus biteissä.
                 Tässä tapauksessa 1024 bittiä, mikä vastaa 2048 bittiä pitkää avainta.
     """
@@ -17,16 +19,18 @@ class rsa_keys:
         """Luokan konstruktori.
         """
 
+        sm = small_primes()
         self.public_key = None
         self.private_key = None
-        self.length = 1024
+        self.small_primes = sm.prime_list
+        self.length = 100
 
     def generate_number(self, n):
         """Luo n-bittiä pitkän luvun.
-        
+
         Args: 
             n: Integer, luvun pituus biteissä
-        
+
         Returns: 
             Integer.
         """
@@ -41,7 +45,7 @@ class rsa_keys:
         """
 
         p, q = self.generate_prime_numbers()
-        print("done")
+        print("alkuluvut löydetty")
 
     def generate_prime_numbers(self):
         """Luo alkuluvut p ja q, niin että p != q.
@@ -51,7 +55,8 @@ class rsa_keys:
         """
 
         while True:
-            p, q = self.generate_number(self.length), self.generate_number(self.length)
+            p, q = self.generate_number(
+                self.length), self.generate_number(self.length)
             if p == q or p % 2 == 0 or q % 2 == 0:
                 continue
             if self.is_prime(p) and self.is_prime(q):
@@ -67,11 +72,27 @@ class rsa_keys:
         Returns: 
             True, jos luku on alkuluku.
         """
+        if not self.screening(n):
+            print("ei läpäissyt screeniä")
+            return False
+        if not self.miller_rabin(n, 20):
+            print("ei läpäissyt milleriä")
+            return False
+        return True
+    
+    # def screening(self, n): ///en ole saanut toimimaan tehostettua versiota
+    #     mod_list = []
+    #     for i in range(len(self.small_primes)):
+    #         mod_list.append(pow(n, 1, self.small_primes[i]))
+    #     for i in range(len(mod_list)):
+    #         if mod_list[i] == 0:
+    #             return False
 
-
-        if self.miller_rabin(n, 20):
-            return True
-        return False
+    def screening(self, n):
+        for prime in self.small_primes:
+            if n % prime == 0:
+                return False
+        return True
 
     def miller_rabin(self, n, k):
         """Tekee halutulle luvulle n Miller-Rabin alkuluku testin k kertaa.
@@ -102,6 +123,7 @@ class rsa_keys:
             else:
                 return False
         return True
+
 
 if __name__ == '__main__':
     start = timer()
