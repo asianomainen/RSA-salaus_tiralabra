@@ -1,4 +1,5 @@
 import random
+import math
 from smallprimes import small_primes
 from timeit import default_timer as timer
 
@@ -58,7 +59,7 @@ class rsa_keys:
         while True:
             p, q = self.generate_number(
                 self.length), self.generate_number(self.length)
-            if p == q or p % 2 == 0 or q % 2 == 0:
+            if p==q or p % 2 == 0 or q % 2 == 0:
                 continue
             if self.is_prime(p) and self.is_prime(q):
                 break
@@ -76,7 +77,7 @@ class rsa_keys:
         if not self.screening(n):
             print("ei läpäissyt screeniä")
             return False
-        if not self.miller_rabin(n, 40):
+        if not self.miller_rabin(n, 20):
             print("ei läpäissyt milleriä")
             return False
         return True
@@ -113,7 +114,9 @@ class rsa_keys:
             d = d // 2
 
         for _ in range(k):
-            a = random.randint(2, n-1)
+            a = random.randint(2, n-2)
+            if math.gcd(n, a) != 1:
+                return False
             x = pow(a, d, n)
             if x == 1 or x == n-1:
                 continue
