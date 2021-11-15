@@ -13,6 +13,7 @@ class rsa_keys:
         small_primes: Lista pienistä alkuluvuista.
         lenght: Avainten luomiseen käytettyjen lukujen pituus biteissä.
                 Tässä tapauksessa 1024 bittiä, mikä vastaa 2048 bittiä pitkää avainta.
+                
     """
 
     def __init__(self):
@@ -23,7 +24,7 @@ class rsa_keys:
         self.public_key = None
         self.private_key = None
         self.small_primes = sm.prime_list
-        self.length = 100
+        self.length = 500
 
     def generate_number(self, n):
         """Luo n-bittiä pitkän luvun.
@@ -75,7 +76,7 @@ class rsa_keys:
         if not self.screening(n):
             print("ei läpäissyt screeniä")
             return False
-        if not self.miller_rabin(n, 20):
+        if not self.miller_rabin(n, 40):
             print("ei läpäissyt milleriä")
             return False
         return True

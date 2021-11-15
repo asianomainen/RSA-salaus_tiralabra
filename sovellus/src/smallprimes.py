@@ -15,7 +15,7 @@ class small_primes:
         self.prime_list = self.generate_list(self.up_till)
 
     def generate_list(self, n):
-        """Luo listan alkuluvuista lukuun n asti.
+        """Luo listan alkuluvuista lukuun n asti Eratostheneen seulalla.
 
         Args: 
             n: Integer, mihin asti alkulukuja luodaan.
