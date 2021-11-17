@@ -21,7 +21,7 @@ class rsa_keys:
         """Luokan konstruktori.
         """
 
-        sm = small_primes()
+        sm = small_primes(500)
         self.public_key = None
         self.private_key = None
         self.small_primes = sm.prime_list
@@ -85,16 +85,17 @@ class rsa_keys:
         if not self.miller_rabin(n, 40):
             return False
         return True
-    
-    # def screening(self, n): ///en ole saanut toimimaan tehostettua versiota
-    #     mod_list = []
-    #     for i in range(len(self.small_primes)):
-    #         mod_list.append(pow(n, 1, self.small_primes[i]))
-    #     for i in range(len(mod_list)):
-    #         if mod_list[i] == 0:
-    #             return False
 
     def screening(self, n):
+        """Tekee alustavan tarkistuksen alkuluku ehdokkaalle, jakamalla sitä pienillä alkuluvuilla.
+
+        Args:
+            n: Integer, jota halutaan testata.
+        
+        Returns:
+            True, jos luku ei ole jaettavissa tasan millään pienellä alkuluvulla
+        """
+
         for prime in self.small_primes:
             if n % prime == 0:
                 return False

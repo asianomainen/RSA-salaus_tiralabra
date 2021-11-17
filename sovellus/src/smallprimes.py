@@ -2,16 +2,19 @@ class small_primes:
     
     """Luokka pienten alkulukujen luomiseen
 
+    Args:
+        up_till: Integer, mihin asti alkulukuja generoidaan.
+
     Attributes: 
         up_till: Integer, mihin asti alkulukuja generoidaan.
         prime_list: Lista alkuluvuista. 
     """
 
-    def __init__(self):
+    def __init__(self, up_till):
         """Luokan konstruktori.
         """
 
-        self.up_till = 500
+        self.up_till = up_till
         self.prime_list = self.generate_list(self.up_till)
 
     def generate_list(self, n):
