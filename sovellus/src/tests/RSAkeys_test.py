@@ -1,12 +1,9 @@
 import unittest
-from RSAkeys import rsa_keys
-from smallprimes import small_primes
+from sovelluslogiikka.RSAkeys import rsa_keys
 
 class TestRSA(unittest.TestCase):
     def setUp(self):
-        sm = small_primes(500)
         self.rsa = rsa_keys()
-        self.small_primes = sm.prime_list
         self.big_prime = 982451653
         self.big_composite = 124251499
     

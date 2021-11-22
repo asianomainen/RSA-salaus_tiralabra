@@ -12,7 +12,6 @@ class small_primes:
 
         Args:
             up_till: Integer, mihin asti alkulukuja generoidaan.
-
         """
 
         self.up_till = up_till

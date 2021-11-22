@@ -4,29 +4,38 @@ from smallprimes import small_primes
 from timeit import default_timer as timer
 
 
-class rsa_keys:
+class key_generator:
 
     """Luokka vastaa RSA-avainten luomisesta.
 
     Attributes:
-        public_key
-        private_key
         small_primes: Lista pienistä alkuluvuista.
-        lenght: Avainten luomiseen käytettyjen lukujen pituus biteissä.
+        lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä.
                 Tässä tapauksessa 1024 bittiä, mikä vastaa 2048 bittiä pitkää avainta.
                 
     """
 
-    def __init__(self):
+    def __init__(self, length):
         """Luokan konstruktori.
+
+        Args: 
+            lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä.
         """
 
         sm = small_primes(500)
-        self.public_key = None
-        self.private_key = None
         self.small_primes = sm.prime_list
-        self.length = 1024
+        self.length = length
 
+    def generate_keys(self):
+        """Luo RSA-avainparin.
+
+        Returns:
+            RSA-avainparin.
+        """
+
+        p, q = self.generate_prime_numbers()
+        print("alkuluvut löydetty")
+    
     def generate_number(self, n):
         """Luo n-bittiä pitkän luvun.
 
@@ -38,16 +47,6 @@ class rsa_keys:
         """
 
         return random.getrandbits(n)
-
-    def generate_keys(self):
-        """Luo RSA-avainparin.
-
-        Returns:
-            RSA-avainparin.
-        """
-
-        p, q = self.generate_prime_numbers()
-        print("alkuluvut löydetty")
 
     def generate_prime_numbers(self):
         """Luo alkuluvut p ja q, niin että p != q.
@@ -136,7 +135,7 @@ class rsa_keys:
 
 if __name__ == '__main__':
     start = timer()
-    keys = rsa_keys()
-    keys.generate_keys()
+    generate = key_generator(1024)
+    generate.generate_keys()
     end = timer()
     print(end - start)
