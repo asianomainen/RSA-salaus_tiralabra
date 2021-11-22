@@ -1,6 +1,7 @@
 import random
 import math
 from smallprimes import small_primes
+from RSAkey import rsa_key
 from timeit import default_timer as timer
 
 
@@ -10,8 +11,8 @@ class key_generator:
 
     Attributes:
         small_primes: Lista pienistä alkuluvuista.
-        lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä.
-        modulus: Alkulukujen tulo, jonka pituus (2048 bittiä) on avainten pituus.   
+        lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä. 
+        e: Osa julkista-avainta.
     """
 
     def __init__(self, length):
@@ -24,20 +25,20 @@ class key_generator:
         sm = small_primes(500)
         self.small_primes = sm.prime_list
         self.length = length
-        self.modulus = None
-        self.__lambdan = None
+        self.e = 65537
+        self.pub_key = None
+        self.pvt_key = None
 
     def generate_keys(self):
-        """Luo RSA-avainparin.
-
-        Returns:
-            RSA-avainparin.
+        """Luo ja tallentaa RSA-avainparin.
         """
-
+        
         p, q = self.generate_prime_numbers()
-        self.compute_modulus(p, q)
-        self.compute_lambdan(p-1, q-1)
-        print("toimii")
+        modulus = p*q
+        lambdan = self.compute_lambdan(p-1, q-1)
+        exponent = pow(self.e, -1, lambdan)
+        self.pub_key = rsa_key(modulus, self.e)
+        self.pvt_key = rsa_key(modulus, exponent)
     
     def generate_number(self, n):
         """Luo n-bittiä pitkän luvun.
@@ -51,31 +52,24 @@ class key_generator:
 
         return random.getrandbits(n)
     
-    def compute_modulus(self, p, q):
-        """Laskee ja tallentaa moduluksen.
-
-        Args:
-            p: Integer, löydetty alkuluku.
-            q: Integer, löydetty alkuluku.
-        """
-
-        self.modulus = p*q
-    
     def compute_lambdan(self, p, q):
-        """Laskee ja tallentaa Carmichaelin funktion arvolla p*q.
+        """Laskee Carmichaelin funktion arvolla p*q.
 
         Args:
             p: Integer, löydetty alkuluku - 1.
             q: Integer, löydetty alkuluku - 1.
+        
+        Returns:
+            Integer, joka on Carmichaelin funktion arvolla p*q.
         """
 
-        self.__lambdan = abs(p*q) // math.gcd(p, q)
+        return abs(p*q) // math.gcd(p, q)
 
     def generate_prime_numbers(self):
         """Luo alkuluvut p ja q, niin että p != q.
 
         Returns:
-            Alkulukuparin.
+            Tuple, joka sisältää löydetyt alkuluvut.
         """
 
         while True:
