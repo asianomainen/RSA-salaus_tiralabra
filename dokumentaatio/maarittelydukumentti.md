@@ -37,4 +37,3 @@ Opiskelen tietojenkäsittelytieteen kandidaatin tutkintoa (TKT).
 - https://en.wikipedia.org/wiki/Primality_test
 - https://en.wikipedia.org/wiki/Miller%E2%80%93Rabin_primality_test
 - https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes
-- https://ieeexplore.ieee.org/document/6300576
