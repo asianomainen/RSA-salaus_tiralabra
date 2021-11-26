@@ -19,7 +19,7 @@ class key_generator:
         """Luokan konstruktori.
 
         Args: 
-            lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä.
+            lenght: Avainten pituus biteissä.
         """
 
         sm = small_primes(500)
@@ -32,7 +32,7 @@ class key_generator:
     def generate_keys(self):
         """Luo ja tallentaa RSA-avainparin.
         """
-        
+
         p, q = self.generate_prime_numbers()
         modulus = p*q
         lambdan = self.compute_lambdan(p-1, q-1)
@@ -73,13 +73,13 @@ class key_generator:
         """
 
         while True:
-            p = self.generate_number(self.length)
+            p = self.generate_number(self.length//2)
             if p % 2 == 0:
                 continue
             if self.is_prime(p):
                 break
         while True:
-            q = self.generate_number(self.length)
+            q = self.generate_number(self.length//2)
             if q % 2 == 0 or q == p:
                 continue
             if self.is_prime(q):
@@ -152,7 +152,7 @@ class key_generator:
 
 if __name__ == '__main__':
     start = timer()
-    generate = key_generator(1024)
+    generate = key_generator(2048)
     generate.generate_keys()
     end = timer()
     print(end - start)
