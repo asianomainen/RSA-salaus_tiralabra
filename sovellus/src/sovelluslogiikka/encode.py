@@ -4,7 +4,7 @@ kg.generate_keys()
 n = kg.pub_key.get_modulus()
 e = kg.pub_key.get_exponent()
 d = kg.pvt_key.get_exponent()
-msg = "65"
+msg = "Tämä on testi"
 msg_bits = msg.encode()
 print(msg_bits)
 lukuna = int.from_bytes(msg_bits, "big")
