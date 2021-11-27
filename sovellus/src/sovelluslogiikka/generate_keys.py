@@ -1,7 +1,5 @@
 import random
 import math
-from smallprimes import small_primes
-from RSAkey import rsa_key
 from timeit import default_timer as timer
 
 
@@ -10,20 +8,23 @@ class key_generator:
     """Luokka vastaa RSA-avainten luomisesta.
 
     Attributes:
-        small_primes: Lista pienistä alkuluvuista.
+        sm: small_primes class.
+        rsa_key: rsa_key class.
+        primes_list: Lista pienistä alkuluvuista.
         lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä. 
         e: Osa julkista-avainta.
     """
 
-    def __init__(self, length):
+    def __init__(self, length, sm, rsa_key):
         """Luokan konstruktori.
 
         Args: 
             lenght: Avainten pituus biteissä.
         """
 
-        sm = small_primes(500)
-        self.small_primes = sm.prime_list
+        sm = sm(500)
+        self.primes_list = sm.prime_list
+        self.rsa_key = rsa_key
         self.length = length
         self.e = 65537
         self.pub_key = None
@@ -37,9 +38,9 @@ class key_generator:
         modulus = p*q
         lambdan = self.compute_lambdan(p-1, q-1)
         exponent = pow(self.e, -1, lambdan)
-        self.pub_key = rsa_key(modulus, self.e)
-        self.pvt_key = rsa_key(modulus, exponent)
-    
+        self.pub_key = self.rsa_key(modulus, self.e)
+        self.pvt_key = self.rsa_key(modulus, exponent)
+
     def generate_number(self, n):
         """Luo n-bittiä pitkän luvun.
 
@@ -51,14 +52,14 @@ class key_generator:
         """
 
         return random.getrandbits(n)
-    
+
     def compute_lambdan(self, p, q):
         """Laskee Carmichaelin funktion arvolla p*q.
 
         Args:
             p: Integer, löydetty alkuluku - 1.
             q: Integer, löydetty alkuluku - 1.
-        
+
         Returns:
             Integer, joka on Carmichaelin funktion arvolla p*q.
         """
@@ -107,12 +108,12 @@ class key_generator:
 
         Args:
             n: Integer, jota halutaan testata.
-        
+
         Returns:
             True, jos luku ei ole jaettavissa tasan millään pienellä alkuluvulla
         """
 
-        for prime in self.small_primes:
+        for prime in self.primes_list:
             if n % prime == 0:
                 return False
         return True

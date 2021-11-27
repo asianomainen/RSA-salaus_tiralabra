@@ -1,6 +1,6 @@
 class rsa_key:
     """Luokka muodostaa RSA-avain olion.
-    
+
     Attributes:
         modulus: Avaimen modulus.
         exponent: Avaimen eksponentti.
@@ -8,7 +8,7 @@ class rsa_key:
 
     def __init__(self, modulus, exponent):
         """Luokan konstruktori.
-        
+
         Args: 
             modulus: Avaimessa käytettävä modulus.
             exponent: Avaimessa käytettävä eksponentti.
@@ -16,7 +16,7 @@ class rsa_key:
 
         self.modulus = modulus
         self.exponent = exponent
-    
+
     def get_modulus(self):
         """Palauttaa avaimen moduluksen.
 
@@ -25,7 +25,7 @@ class rsa_key:
         """
 
         return self.modulus
-    
+
     def get_exponent(self):
         """Palauttaa avaimen eksponentin.
 
