@@ -17,12 +17,17 @@ Helsingin yliopiston Aineopintojen harjoitustyö: Tietorakenteet ja algoritmit
 
 ## Komentorivikomennot
 
+#### Riippuvuuksien asennus
+
+```
+poetry install
+```
+
 #### Ohjelman voi suorittaa komennolla 
 
 ```
 poetry run invoke start
 ```
-(ei vielä suorita mitään)
 
 #### Ohjelman testit voi suorittaa komennolla
 
