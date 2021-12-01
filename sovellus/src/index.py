@@ -4,6 +4,10 @@ from sovelluslogiikka.generate_keys import key_generator
 from sovelluslogiikka.encrypt import encrypt
 from sovelluslogiikka.decrypt import decrypt
 
+"""Alustava tekstipohjainen käyttöliittymä konseptin toimivuuden tarkistamiseen.
+Tarkoitus tehdä graafinseksi, jos vain mahdollista.
+"""
+
 while True:
     print("0: lopeta")
     print("1: generoi RSA-avaimet")

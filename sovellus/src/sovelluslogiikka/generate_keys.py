@@ -12,7 +12,7 @@ class key_generator:
         rsa_key: rsa_key class.
         primes_list: Lista pienistä alkuluvuista.
         lenght: Avainten luomiseen käytettyjen alkulujenlukujen pituus biteissä. 
-        e: Osa julkista-avainta.
+        e: Julkisen avaimen eksponentti.
     """
 
     def __init__(self, length, sm, rsa_key):
