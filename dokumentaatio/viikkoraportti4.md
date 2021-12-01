@@ -2,7 +2,7 @@
 
 ## Mitä tehtiin?
 
-Koodin rakennetta refaktoroita. Koodi, tsetejä sekä dokumentointia jatkettu.
+Koodin rakennetta refaktoroitu. Koodia, testejä sekä dokumentointia jatkettu.
 
 ## Ohjelman edistyminen?
 
