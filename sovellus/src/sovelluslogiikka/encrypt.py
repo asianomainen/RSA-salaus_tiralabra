@@ -30,7 +30,7 @@ class encrypt:
 
         return msg.encode()
 
-    def bits_to_int(self, msg):
+    def bytes_to_int(self, msg):
         """Muuntaa tavut luvuksi.
         
         Args:
