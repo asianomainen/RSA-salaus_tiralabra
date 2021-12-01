@@ -1,6 +1,6 @@
 class small_primes:
     
-    """Luokka pienten alkulukujen luomiseen
+    """Luokka pienten alkulukujen luomiseen.
 
     Attributes: 
         up_till: Integer, mihin asti alkulukuja generoidaan.
