@@ -1,5 +1,5 @@
 class decrypt:
-
+    
     """Luokka salatun viestin purkamiseen.
     """
 
@@ -16,9 +16,9 @@ class decrypt:
 
         decrypted = pow(msg, key.get_exponent(), key.get_modulus())
         in_bytes = self.int_to_bytes(decrypted)
-        in_text = self.bytes_to_text(in_bytes)
+        in_text = self.bytes_to_string(in_bytes)
         return in_text
-    
+
     def int_to_bytes(self, msg):
         """Muuntaa luvun tavuiksi.
 
@@ -30,13 +30,13 @@ class decrypt:
         """
 
         return msg.to_bytes(2048, "big")
-    
-    def bytes_to_text(self, msg):
+
+    def bytes_to_string(self, msg):
         """Muuntaa tavut tekstiksi.
 
         Args:
             msg: Viesti tavuina
-        
+
         Returns:
             Viestin tekstinä.
         """

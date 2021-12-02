@@ -1,11 +1,11 @@
 class encrypt:
-
+    
     """Luokka viestin salaamiseen.
     """
 
     def encrypt(self, msg, key):
         """Salaa viestin.
-        
+
         Args:
             msg: Salattava viesti.
             key: Viestin salaava avain.
@@ -14,16 +14,16 @@ class encrypt:
             Salatun viestin.
         """
 
-        in_bytes = self.text_to_bytes(msg)
+        in_bytes = self.string_to_bytes(msg)
         in_int = self.bytes_to_int(in_bytes)
         return pow(in_int, key.get_exponent(), key.get_modulus())
 
-    def text_to_bytes(self, msg):
+    def string_to_bytes(self, msg):
         """Muuntaa viestin tavuiksi.
 
         Args: 
             msg: Muutettava viesti.
-        
+
         Returns:
             Viestin tavuina.
         """
@@ -32,7 +32,7 @@ class encrypt:
 
     def bytes_to_int(self, msg):
         """Muuntaa tavut luvuksi.
-        
+
         Args:
             msg: Muutettavat tavut.
 
@@ -41,4 +41,3 @@ class encrypt:
         """
 
         return int.from_bytes(msg, "big")
-
