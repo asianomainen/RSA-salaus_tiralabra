@@ -36,3 +36,35 @@ Ohjelman sovelluslogiikka koostuu viidestä luokasta:
         - `get_exponent`
            - Palauttaa avaimen eksponentin
 
+
+3. `small_primes`
+    - Luokka pienten alkulukujen generoimiseen
+    - Konstruktori:
+        - Saa parametriksi luvun mihin asti alkulukuja generoidaan
+    - Metodit:
+        - `generate_list`
+            - Palauttaa listan alkuluvuista
+
+
+4. `encrypt`
+    - Luokka viestin salaamiseen
+    - Metodit:
+        - `encrypt`
+            - Salaa viestin
+        - `text_to_bytes`
+            - Muuntaa viestin tavuiksi
+        - `bytes_to_int`
+            - Muuntaa tavut luvuksi
+
+5. `decrypt`
+    - Luokka salatun viestin purkamiseen
+    - Metodit:
+        - `decrypt`
+            - Purkaa salatun viestin
+        - `int_to_bytes`
+            - Muuntaa luvun tavuiksi
+        - `bytes_to_text`
+            - Muuntaa tavut tekstiksi
+           
+       
+
