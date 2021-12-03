@@ -4,7 +4,7 @@ from sovelluslogiikka.generate_keys import key_generator
 from sovelluslogiikka.RSAkey import rsa_key
 from sovelluslogiikka.smallprimes import small_primes
 
-class TestEncrypter(unittest.TestCase):
+class TestEncrypt(unittest.TestCase):
     def setUp(self):
         self.generator = key_generator(2048, small_primes, rsa_key)
         self.generator.generate_keys()
