@@ -12,9 +12,9 @@ Julkisen ja yksityisen avaimen hallinnoinnista ja generoimisesta vastaava `rsa_k
 
 ## Testikattavuus
 
-Testien haarautumakattavuus on 86% tässä kohtaa projektia.
+Testien haarautumakattavuus on 94%
 
-![coverage](https://github.com/ItsTuukka/RSA-salaus_tiralabra/blob/master/dokumentaatio/kuvat/new_testcoverage.png)
+![coverage](https://github.com/ItsTuukka/RSA-salaus_tiralabra/blob/master/dokumentaatio/kuvat/rsa_coverage.png)
 
 ## Järjestelmätestaus
 
