@@ -18,13 +18,15 @@ while True:
         kg.generate_keys()
         print("Avaimet luotu")
         text = str(input("Anna salattava viesti: "))
+        size_in_bytes = len(text.encode())
+        print(size_in_bytes)
         encrypted_text = encrypt().encrypt(text, kg.pub_key)
         print("salattu viesti:")
         print(encrypted_text)
         print("Pura viesti? (1 = kyllä)")
         choice = int(input())
         if choice == 1:
-            decrypted_text = decrypt().decrypt(encrypted_text, kg.pvt_key)
+            decrypted_text = decrypt().decrypt(encrypted_text, size_in_bytes, kg.pvt_key)
             print("purettu viesti:")
             print(decrypted_text)
             break

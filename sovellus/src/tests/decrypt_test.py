@@ -10,17 +10,19 @@ class TestDecrypt(unittest.TestCase):
         self.generator = key_generator(2048, small_primes, rsa_key)
         self.generator.generate_keys()
         self.msg = "Tämä on testi viesti."
+        self.size = len(self.msg.encode())
         self.encrypted_msg = encrypt().encrypt(self.msg, self.generator.pub_key)
+        self.decrypted = pow(self.encrypted_msg, self.generator.pvt_key.get_exponent(), self.generator.pvt_key.get_modulus())
     
-    # def test_decryption(self):
-    #     decrypted_msg = decrypt().decrypt(self.encrypted_msg, self.generator.pvt_key)
-    #     self.assertEqual(decrypted_msg, self.msg)
+    def test_decryption(self):
+        decrypted_msg = decrypt().decrypt(self.encrypted_msg, self.size, self.generator.pvt_key)
+        self.assertEqual(decrypted_msg, self.msg)
     
     def test_int_to_bytes(self):
-        in_bytes = decrypt().int_to_bytes(self.encrypted_msg)
+        in_bytes = decrypt().int_to_bytes(self.decrypted, self.size)
         self.assertEqual(type(in_bytes), bytes)
 
-    # def test_bytes_to_string(self):
-    #     in_bytes = decrypt().int_to_bytes(self.encrypted_msg)
-    #     in_string = decrypt().bytes_to_string(in_bytes)
-    #     self.assertEqual(type(in_string), str)
+    def test_bytes_to_string(self):
+        in_bytes = decrypt().int_to_bytes(self.decrypted, self.size)
+        in_string = decrypt().bytes_to_string(in_bytes)
+        self.assertEqual(type(in_string), str)
