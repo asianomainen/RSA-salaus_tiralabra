@@ -18,7 +18,7 @@ Testien haarautumakattavuus on 94%. Raportista on jätetty ulkopuolelle käyttö
 
 ## Järjestelmätestaus
 
-(tulossa)
+Sovellusta testattu järjestelmätasolla manuaalisesti, eikä ongelmia ole havaittu.
 
 ## Suorituskykytestaus
 
