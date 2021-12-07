@@ -22,10 +22,10 @@ Sovellusta testattu järjestelmätasolla manuaalisesti, eikä ongelmia ole havai
 
 ## Suorituskykytestaus
 
-Suorituskykyä on testattu generoimalla eri pituisia avaimia ja ottamalla keskiarvo kymmenestä suorituskerrasta. Sovelluksessa käytetään avaimen pituutena 2048 bittiä, joka on tällä hetkellä suositeltu pituus RSA-avaimelle. 
+Suorituskykyä on testattu generoimalla eri pituisia avainpareja ja ottamalla keskiarvo kymmenestä suorituskerrasta. Sovelluksessa käytetään avaimen pituutena 2048 bittiä, joka on tällä hetkellä suositeltu pituus RSA-avaimelle. 
 
-Avaimen pituus bitteinä | Keskiarvo (10 suorituskertaa)|
-----|----------|
+Avainparin pituus bitteinä | Keskiarvo (10 suorituskertaa)|
+-----|----------|
 1024 | 0,078s
 2048 | 0,702s
 4096 | 8,785s
