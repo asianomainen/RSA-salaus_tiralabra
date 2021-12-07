@@ -8,7 +8,13 @@ Yksikkötestaus suoritetaan automaattisesti unittestiä käyttäen.
 
 Pienistä alkuluvuista vastaavaa `small_primes` -luokkaa testataan omassa luokassaan. `TestSmallprimes` -testiluokka vertaa `small_primes` -luokan `generate_list` -metodin tuottamaa listaa ja vertaa sitä tunnettuun listaan alkuluvuista.
 
-Julkisen ja yksityisen avaimen hallinnoinnista ja generoimisesta vastaava `rsa_keys` -luokka testataan omassa luokassaan. `TestRSA` -testiluokka testaa alkuluvun etsimiseen tarkotettuja metodeja tunnetulla alkuluvulla sekä tunnetullu yhdistetyllä luvulla.
+RSA-avainparin generoimisesta vastaava `key_generator` -luokka testataan omassa luokassaan. `TestKeyGenerator` -testiluokka testaa alkuluvun etsimiseen tarkotettuja metodeja tunnetulla alkuluvulla sekä tunnetulla yhdistetyllä luvulla.
+
+RSA-avaimen tallentamisesta ja hallinnoimisesta vastaava `rsa_key` -luokka testataan omassa luokassaan. `TestRsaKey` -testiluokka testaa avaimen moduluksen ja eksponentin palauttamista.
+
+Viestin salaamisesta vastaava `encrypt` -luokka testaan omassa luokassaa. `TestEncrypt` -testiluokka testaa viestin salaamista ja salaamisoperaation eri vaiheita.
+
+Salatun viestin purkamisesta vastaa `decrypt` -luokka testataan omassa luokassaan. `TestDecrypt` -testiluokka testaa viestin purkamista ja purkuoperaation eri vaiheita.
 
 ## Testikattavuus
 
