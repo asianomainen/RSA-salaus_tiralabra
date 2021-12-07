@@ -68,7 +68,7 @@ Ohjelman sovelluslogiikka koostuu viidestä luokasta:
            
 ## Suorituskykyvertailu
 
-Suorituskyky vertailu on tehty generoimalla eri pituisia avainpareja ja ottamalla keskiarvo kymmenestä suorituskerrasta.
+Suorituskykyvertailu on tehty generoimalla eri pituisia avainpareja ja ottamalla keskiarvo kymmenestä suorituskerrasta.
 
 Avaimen pituus bitteinä | Keskiarvo (10 suorituskertaa)|
 ----|----------|
