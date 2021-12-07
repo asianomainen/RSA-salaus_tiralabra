@@ -66,5 +66,13 @@ Ohjelman sovelluslogiikka koostuu viidestä luokasta:
         - `bytes_to_text`
             - Muuntaa tavut tekstiksi
            
-       
+## Suorituskykyvertailu
+
+Suorituskyky vertailu on tehty generoimalla eri pituisia avainpareja ja ottamalla keskiarvo kymmenestä suorituskerrasta.
+
+Avaimen pituus bitteinä | Keskiarvo (10 suorituskertaa)|
+----|----------|
+1024 | 0,078s
+2048 | 0,702s
+4096 | 8,785s
 
