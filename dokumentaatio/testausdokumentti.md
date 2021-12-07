@@ -6,9 +6,9 @@ Yksikkötestaus suoritetaan automaattisesti unittestiä käyttäen.
 
 ### Sovelluslogiikka
 
-Pienistä alkuluovuista vastaavaa `small_primes` -luokkaa testataan omassa luokassaan. `TestSmallprimes` -testiluokka vertaa `small_primes` -luokan `generate_list` -metodin tuottamaa listaa ja vertaa sitä tunnettuun listaan alkuluvuista.
+Pienistä alkuluvuista vastaavaa `small_primes` -luokkaa testataan omassa luokassaan. `TestSmallprimes` -testiluokka vertaa `small_primes` -luokan `generate_list` -metodin tuottamaa listaa ja vertaa sitä tunnettuun listaan alkuluvuista.
 
-Julkisen ja yksityisen avaimen hallinnoinnista ja generoimisesta vastaava `rsa_keys` -luokka testataan omassa luokassaan, mutta tämä myös vaatii `small_primes` -luokan attribuutteja. `TestRSA` -testiluokka testaa alkuluvun etsimiseen tarkotettuja metodeja tunnetulla alkuluvulla sekä tunnetullu yhdistetyllä luvulla.
+Julkisen ja yksityisen avaimen hallinnoinnista ja generoimisesta vastaava `rsa_keys` -luokka testataan omassa luokassaan. `TestRSA` -testiluokka testaa alkuluvun etsimiseen tarkotettuja metodeja tunnetulla alkuluvulla sekä tunnetullu yhdistetyllä luvulla.
 
 ## Testikattavuus
 
