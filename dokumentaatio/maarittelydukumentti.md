@@ -21,11 +21,17 @@ RSA-salaus perustuu erittäin suurien alkulukujen löytämiseen, eikä projektis
 - Miller-Rabin algoritmi
   - Tarkka testi joka tarkistaa, onko käsiteltävä luku alkuluku vai ei.
   - Algoritmi käy testattavan luvun läpi k kertaa, ja todennäköisyys että testin hyväksymä luku ei ole alkuluku on 4^-k.
+
+- Eratostheneen seula
+  - Luo kaikki alkuluvut parametriin n asti.
  
 ## Tavoitteena olevat aikavaativuudet
 
 - Miller-Rabin algoritmi:
   - Aikaavituus: O(k log^3 n), missä k on läpikäyntien määrä ja n on testattava luku.
+
+- Eratostheneen seula
+  - Aikavaativuus: O(n log log n), missä n on luku johon asti alkulukuja generoidaan.
 
 ## Opinto-ohjelma
 
